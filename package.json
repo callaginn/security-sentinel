@@ -1,0 +1,19 @@
+{
+	"name": "security-sentinel",
+	"description": "This tool scans a website to uncover common network and web application security weaknesses. It analyzes critical areas like security headers, cookie configurations, and SSL/TLS settings, providing insights for improving a site's security.",
+	"author": "Stephen Ginn",
+	"license": "MIT",
+	"version": "1.0.0",
+	"main": "index.js",
+	"type": "module",
+	"scripts": {
+		"start": "node index.js"
+	},
+	"dependencies": {
+		"chalk": "^5.4.1",
+		"cookie": "^1.0.2",
+		"node-fetch": "^3.3.2",
+		"puppeteer": "^24.6.0",
+		"wrap-ansi": "^9.0.0"
+	}
+}
