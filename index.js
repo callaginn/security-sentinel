@@ -23,9 +23,14 @@ import * as security from './bin/security.js';
 	
 	for (const ipAddress of ipAddresses) {
 		console.group('\n' + chalk.bold.cyan(`Network Tests for ${ipAddress}...`));
-		await network.testMySQLService(ipAddress);
-		await network.testSelfSignedCertificate(ipAddress);
-		await network.testEmailServiceWithoutTLS(ipAddress);
+		await Promise.all([
+			network.testMySQLService(ipAddress),
+			network.testSelfSignedCertificate(ipAddress),
+			network.testEmailServiceWithoutTLS(ipAddress),
+		]);
+		console.groupEnd();
+		
+		console.group('\n' + chalk.bold.cyan(`OpenSSH Tests for ${ipAddress}...`));
 		await network.testOpenSSHVersion(ipAddress);
 		console.groupEnd();
 	}

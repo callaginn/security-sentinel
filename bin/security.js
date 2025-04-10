@@ -189,7 +189,7 @@ async function testBrowserLogs(url) {
 	if (messages.length > 0) {
 		console.warn(chalk.red('❌ Visible browser logs detected:'));
 		messages.forEach((msg) => {
-			const wrappedLine = wrapText(`	[${msg.type}] ${msg.text}`, 80, '	');
+			const wrappedLine = wrapText(`[${msg.type}] ${msg.text}`, 100, '   ');
 			console.warn(chalk.dim(wrappedLine));
 		});
 	} else {
